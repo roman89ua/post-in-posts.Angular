@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Angular components</h1>
+  <h2>Some Subheader (encapsulation: ViewEncapsulation.None)</h2>
+  <app-post-form
+    (addOn)="updatePosts($event)"
+  ></app-post-form>
+  <hr />
+  <app-post
+    *ngFor="let pos of posts"
+    [postOfPosts]="pos"
+    (romoveOn)="remove($event)"
+  >
+    <div #info>
+      <small *ngIf="pos.text.length > 10; else short;">Post is long</small>
+      <ng-template #short>
+        <small>Post is short</small>
+      </ng-template>
+    </div>
+  </app-post>
+
+
+</div>
